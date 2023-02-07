@@ -6,7 +6,7 @@ const login = async (req, res, next) => {
 
 const login1 = async (req, res, next) => {
     const email = req.body.email
-    if (req.body.email === 'test@email.com' && req.body.password === 'password') {
+    if (req.body.email === 'test@email.com' && req.body.password === '12345678') {
         req.session.user = {email};
         return res.redirect('/dashboard');
     }
