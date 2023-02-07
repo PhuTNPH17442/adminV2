@@ -28,4 +28,5 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(dashboardRouter.routes)
 app.use(authRouter.routes)
 
-app.listen(9999, ()=>console.log("Run"))
+const PORT = process.env.PORT||4567
+app.listen(PORT,()=> console.log(`Sever running in `+PORT))
