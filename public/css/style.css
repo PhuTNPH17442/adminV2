@@ -1,31 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-*
-{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu',sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
-:root
-{
-    --blue:#ff28b7;
-    --white:#fff;
-    --grey:#f5f5f5;
-    --black1:#222;
-    --black2:#999;
+
+:root {
+    --blue: #ff28b7;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
 }
-body{
+
+body {
     min-height: 100vh;
     overflow-x: hidden;
 }
-.container
-{
+
+.container {
     position: relative;
     width: 100%;
 }
-.navigation
-{
-    position:fixed; 
+
+.navigation {
+    position: fixed;
     width: 300px;
     height: 100%;
     background: var(--blue);
@@ -33,35 +34,37 @@ body{
     transition: 0.5s;
     overflow: hidden;
 }
-.navigation.active{
+
+.navigation.active {
     width: 80px;
 }
-.navigation ul{
+
+.navigation ul {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
-.navigation ul li 
-{
+
+.navigation ul li {
     position: relative;
-    width:100%;
+    width: 100%;
     list-style: none;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
+
 .navigation ul li:hover,
-.navigation ul li.hovered
-{
+.navigation ul li.hovered {
     background: var(--white);
 }
-.navigation ul li:nth-child(1)
-{
+
+.navigation ul li:nth-child(1) {
     margin-bottom: 40px;
     pointer-events: none;
 }
-.navigation ul li a
-{
+
+.navigation ul li a {
     position: relative;
     display: block;
     width: 100%;
@@ -69,13 +72,13 @@ body{
     text-decoration: none;
     color: var(--white);
 }
+
 .navigation ul li:hover a,
-.navigation ul li.hovered a
-{
+.navigation ul li.hovered a {
     color: var(--blue);
 }
-.navigation ul li a .icon
-{
+
+.navigation ul li a .icon {
     position: relative;
     display: block;
     min-width: 60px;
@@ -83,12 +86,12 @@ body{
     line-height: 70px;
     text-align: center;
 }
-.navigation ul li a .icon ion-icon
-{
+
+.navigation ul li a .icon ion-icon {
     font-size: 1.75em;
 }
-.navigation ul li a .title
-{
+
+.navigation ul li a .title {
     position: relative;
     display: block;
     padding: 0 10px;
@@ -100,8 +103,7 @@ body{
 
 /* outside */
 .navigation ul li:hover a::before,
-.navigation ul li.hovered a::before
-{
+.navigation ul li.hovered a::before {
     content: '';
     position: absolute;
     right: 0;
@@ -110,12 +112,12 @@ body{
     height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow:35px 35px 0 10px var(--white) ;
+    box-shadow: 35px 35px 0 10px var(--white);
     pointer-events: none;
 }
+
 .navigation ul li:hover a::after,
-.navigation ul li.hovered a::after
-{
+.navigation ul li.hovered a::after {
     content: '';
     position: absolute;
     right: 0;
@@ -124,13 +126,12 @@ body{
     height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow:35px -35px 0 10px var(--white) ;
+    box-shadow: 35px -35px 0 10px var(--white);
     pointer-events: none;
 }
 
 /* main */
-.main
-{
+.main {
     position: absolute;
     width: calc(100% - 300px);
     left: 300px;
@@ -138,12 +139,13 @@ body{
     background: var(--white);
     transition: 0.5s;
 }
-.main.active{
-    width: calc(100% - 80px);  
+
+.main.active {
+    width: calc(100% - 80px);
     left: 80px;
 }
-.topbar
-{
+
+.topbar {
     width: 100%;
     height: 60px;
     display: flex;
@@ -151,8 +153,8 @@ body{
     align-items: center;
     padding: 0 10px;
 }
-.toggle
-{
+
+.toggle {
     position: relative;
     width: 60px;
     height: 60px;
@@ -162,19 +164,19 @@ body{
     font-size: 2.5em;
     cursor: pointer;
 }
-.search
-{
+
+.search {
     position: relative;
     width: 400px;
     margin: 0 10px;
 }
-.search label
-{
+
+.search label {
     position: relative;
     width: 100%;
 }
-.search label input
-{
+
+.search label input {
     width: 100%;
     height: 40px;
     border-radius: 40px;
@@ -184,15 +186,15 @@ body{
     font-size: 18px;
     border: 1px solid var(--black2);
 }
-.search label ion-icon
-{
+
+.search label ion-icon {
     position: absolute;
     top: 0;
     left: 10px;
     font-size: 1.2em;
 }
-.user
-{
+
+.user {
     position: relative;
     min-width: 40px;
     height: 40px;
@@ -201,7 +203,8 @@ body{
     cursor: pointer;
     margin-left: 100px;
 }
-.user img{
+
+.user img {
     position: absolute;
     top: 0;
     left: 0;
@@ -209,90 +212,113 @@ body{
     height: 100%;
     object-fit: cover;
 }
-.cardBox
-{
+
+.cardBox {
     position: relative;
     width: 100%;
     padding: 20px;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
 }
-.cardBox .card{
+
+.cardBox .card {
     position: relative;
     background: var(--white);
     padding: 30px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
-.cardBox .card .numbers{
+
+.cardBox .card .numbers {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
     color: var(--blue);
 }
-.cardBox .card .cardName
-{
+
+.cardBox .card .cardName {
     color: var(--black2);
     font-size: 1.1em;
     margin-top: 5px;
 }
-.cardBox .card .iconBx{
-    font-size:  3.5em;
+
+.cardBox .card .iconBx {
+    font-size: 3.5em;
     color: var(--black2);
 }
-.detail
-{
+
+.detail {
     position: relative;
     width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+}
+.detail2 {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
     padding: 20px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
 }
+.detail3 {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+}
+
 .highcharts-figure,
 .highcharts-data-table table {
-  min-width: 360px;
-  max-width: 800px;
-  margin: 1em auto;
+    min-width: 360px;
+    max-width: 800px;
+    margin: 1em auto;
 }
 
 .highcharts-data-table table {
-  font-family: Verdana, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid #ebebeb;
-  margin: 10px auto;
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 
 .highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
 }
 
 .highcharts-data-table th {
-  font-weight: 600;
-  padding: 0.5em;
+    font-weight: 600;
+    padding: 0.5em;
 }
 
 .highcharts-data-table td,
 .highcharts-data-table th,
 .highcharts-data-table caption {
-  padding: 0.5em;
+    padding: 0.5em;
 }
 
 .highcharts-data-table thead tr,
 .highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
+    background: #f8f8f8;
 }
 
 .highcharts-data-table tr:hover {
-  background: #f1f7ff;
+    background: #f1f7ff;
 }
+
 .cardUser {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 100%;
@@ -301,34 +327,37 @@ body{
     display: flex;
     flex-direction: row;
     text-align: start;
-  }
-  
-  .card-body {
+}
 
-    padding: 4px 16px;
-  }
-  
-  .card-title {
+.card-body {
+padding: 4px 16px;
+width: 360px;
+}
+
+.card-title {
     font-size: 18px;
-  }
-  
-  .card-text {
+}
+
+.card-text {
     font-size: 14px;
     color: #333;
-  }
-  
-  .cardUser img {
+}
+
+.cardUser img {
     width: 100px;
     height: 100px;
     margin-right: 20px;
     object-fit: cover;
-  }
-  .blocked {
+}
+
+.blocked {
     background-color: red;
-  }
-  .unblocked {
+}
+
+.unblocked {
     background-color: green;
-  }
+}
+
 /* .card-button 
  {
     margin-left: 700px;
@@ -336,9 +365,27 @@ body{
     margin-right: 20px;
     margin-bottom: 10px;    
  } */
- .cardUser button
- {
-    float: right;
-   right: 0;
-   height: 100%;
- }
+.cardUser {
+    margin-left: 20px;
+    float: left;
+    right: 0;
+    height: 100%;
+    width: 700px;
+}
+
+.cardUser .btn {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
