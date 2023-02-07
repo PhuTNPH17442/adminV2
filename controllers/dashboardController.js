@@ -15,7 +15,7 @@ const firebase = require("firebase")
   const db = firebase.database().ref("user_profile");
 const dashboard = (req,res,next)=>{
   if (!req.session.user) {
-    return res.redirect('/login');
+    return res.redirect('/');
   }
   return res.render('dashboard');
 }
