@@ -57,20 +57,11 @@
         <div class="cardBox">
             <div class="card">
                 <div>
-                    <div class="numbers">1,504</div>
+                    <div id="num" class="numbers">18</div>
                     <div class="cardName">Customers</div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="people-circle-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div>
-                    <div class="numbers">1,504</div>
-                    <div class="cardName">Earning</div>
-                </div>
-                <div class="iconBx">
-                    <ion-icon name="cash-outline"></ion-icon>
                 </div>
             </div>
         </div>
@@ -132,6 +123,25 @@
         }
         list.forEach((item) =>
             item.addEventListener('mouseover', activeLink));
+    </script>
+    <script>
+        const firebaseConfig ={
+    apiKey: "AIzaSyC0ALYEQcMqnXHT-gZyexMdX37HCPdfuAM",
+    authDomain: "fpoly-friend.firebaseapp.com",
+    databaseURL: "https://fpoly-friend-default-rtdb.firebaseio.com",
+    projectId: "fpoly-friend",
+    storageBucket: "fpoly-friend.appspot.com",
+    messagingSenderId: "475753837744",
+    appId: "1:475753837744:web:5887cf11dca611f1bf7775",
+    measurementId: "G-MGVJ00L9LE"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database().ref("user_profile");
+  db.once('value', function(snapshot) {
+  var numUsers = Object.keys(snapshot.val()).length;
+  document.getElementById("num").innerHTML = numUsers;
+});
     </script>
 </body>
 

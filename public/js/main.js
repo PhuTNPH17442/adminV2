@@ -90,7 +90,7 @@ const userChartData = async()=>{
   Highcharts.chart('userChart', {
 
     title: {
-      text: 'U.S Solar Employment Growth by Job Category, 2010-2020',
+      text: 'Users Join Every Month, 4/2022-2/2023',
       align: 'left'
     },
   
@@ -150,12 +150,25 @@ const userChartData = async()=>{
   });
 }
 const hobbiesChartData = async()=>{
+   let countPhim = 0;
+   let countHipHop = 0;
+   let countSuoi = 0;
+   let countDa = 0;
+   let countHan = 0;
+   let countGiaoLuu = 0;
+   let countDuLich = 0;
+   let countChay = 0;
+   let countGym = 0;
+   let count9x = 0;
+   let countPTXH = 0;
    
   $.ajax({
-    url:'/userChart',
+    url:'/hobbiesChart',
     type:'GET',
     datatype:'json',
-    success: (response)=>{}
+    success: (response)=>{
+      const {countPhim,countHipHop,countSuoi,countDa,countHan,countGiaoLuu,countDuLich,countChay,countGym,count9x,countPTXH} = response
+    }
     ,
     error:(err)=>{
         console.log(err)
@@ -163,74 +176,66 @@ const hobbiesChartData = async()=>{
     })
     Highcharts.chart('hobbiesChart', {
       chart: {
-        type: 'bar'
+        type: 'column'
       },
       title: {
-        text: 'Historic World Population by Region',
-        align: 'left'
+        text: 'HOBBIES'
       },
-      subtitle: {
-        text: 'Source: <a ' +
-          'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
-          'target="_blank">Wikipedia.org</a>',
-        align: 'left'
-      },
+      // subtitle: {
+      //   text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>'
+      // },
       xAxis: {
-        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-        title: {
-          text: null
+        type: 'category',
+        labels: {
+          rotation: -45,
+          style: {
+            fontSize: '13px',
+            fontFamily: 'Verdana, sans-serif'
+          }
         }
       },
       yAxis: {
         min: 0,
         title: {
-          text: 'Population (millions)',
-          align: 'high'
-        },
-        labels: {
-          overflow: 'justify'
-        }
-      },
-      tooltip: {
-        valueSuffix: ' millions'
-      },
-      plotOptions: {
-        bar: {
-          dataLabels: {
-            enabled: true
-          }
+          text: 'User'
         }
       },
       legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-          Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
-      },
-      credits: {
         enabled: false
       },
+      tooltip: {
+        pointFormat: 'Population in 2021: <b>{point.y:.1f} millions</b>'
+      },
       series: [{
-        name: 'Year 1990',
-        data: [631, 727, 3202, 721, 26]
-      }, {
-        name: 'Year 2000',
-        data: [814, 841, 3714, 726, 31]
-      }, {
-        name: 'Year 2010',
-        data: [1044, 944, 4170, 735, 40]
-      }, {
-        name: 'Year 2018',
-        data: [1276, 1007, 4561, 746, 42]
+        name: 'Population',
+        data: [
+          ['Phim Hàn', 37.33],
+          ['HipHop', 31.18],
+          ['Phim', 27.79],
+          ['Giao Lưu', 22.23],
+          ['Suối Nóng', 21.91],
+          ['Thế Hệ 9x', 21.74],
+          ['Phát triển XH', 21.32],
+          ['Tập Gym', 20.89],
+          ['Chạy Bộ', 20.67],
+          ['Du lịch', 19.11],
+          ['Chăm sóc da', 16.45]
+        ],
+        dataLabels: {
+          enabled: true,
+          rotation: -90,
+          color: '#FFFFFF',
+          align: 'right',
+          format: '{point.y:.1f}', // one decimal
+          y: 10, // 10 pixels down from the top
+          style: {
+            fontSize: '13px',
+            fontFamily: 'Verdana, sans-serif'
+          }
+        }
       }]
     });
-  }
+}
   const educationChartData = async()=>{
     $.ajax({
       url:'/userChart',
@@ -277,26 +282,26 @@ const hobbiesChartData = async()=>{
         series: [{
           name: 'Population',
           data: [
-            ['Tokyo', 37.33],
-            ['Delhi', 31.18],
-            ['Shanghai', 27.79],
-            ['Sao Paulo', 22.23],
-            ['Mexico City', 21.91],
-            ['Dhaka', 21.74],
-            ['Cairo', 21.32],
-            ['Beijing', 20.89],
-            ['Mumbai', 20.67],
-            ['Osaka', 19.11],
-            ['Karachi', 16.45],
-            ['Chongqing', 16.38],
-            ['Istanbul', 15.41],
-            ['Buenos Aires', 15.25],
-            ['Kolkata', 14.974],
-            ['Kinshasa', 14.970],
-            ['Lagos', 14.86],
-            ['Manila', 14.16],
-            ['Tianjin', 13.79],
-            ['Guangzhou', 13.64]
+            ['PTPM', 37.33],
+            ['WEB', 31.18],
+            ['MOB', 27.79],
+            ['UDPM', 22.23],
+            ['XLDL', 21.91],
+            ['Sale', 21.74],
+            ['Digital', 21.32],
+            ['Logistic', 20.89],
+            ['Khách Sạn', 20.67],
+            ['Nhà Hàng', 19.11],
+            ['Tự Động Hóa', 16.45],
+            ['Điện Tử', 16.38],
+            ['Điện CN', 15.41],
+            ['TKDH', 15.25],
+            ['HD Du lịch', 14.974],
+            ['Cơ Khí', 14.970],
+            ['Spa ', 14.86],
+            ['Make', 14.16],
+            ['Phun thêu', 13.79],
+            ['Mi Móng', 13.64]
           ],
           dataLabels: {
             enabled: true,
@@ -312,4 +317,19 @@ const hobbiesChartData = async()=>{
           }
         }]
       });
+  }
+  const indexHTM = async()=>{
+    $.ajax({
+      url:'/index',
+      type:'GET',
+      datatype:'json',
+      success: (response)=>{
+        console.log(response)
+        document.getElementById("numbers").innerHTML = response
+      }
+      ,
+      error:(err)=>{
+          console.log(err)
+      }
+      })
   }

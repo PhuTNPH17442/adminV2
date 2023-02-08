@@ -1,5 +1,6 @@
 const  axios = require('axios')
-const firebase = require("firebase")
+const firebase = require("firebase");
+const { isArray } = require('highcharts');
   const firebaseConfig ={
     apiKey: "AIzaSyC0ALYEQcMqnXHT-gZyexMdX37HCPdfuAM",
     authDomain: "fpoly-friend.firebaseapp.com",
@@ -18,6 +19,21 @@ const dashboard = (req,res,next)=>{
     return res.redirect('/');
   }
   return res.render('dashboard');
+}
+const index = async(req,res,next)=>{
+  db.get().then((snapshot) => {
+    if (snapshot.exists()) {
+      // res.send(snapshot.val());
+      const data = snapshot.val();
+      const count = Object.keys(data).length;
+      console.log(isArray(count))
+       
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
 }
 const customers = async(req,res,next)=>{
     
@@ -114,11 +130,27 @@ const hobbiesChart = async(req,res,next)=>{
     console.log(hobbies);
   }); 
 }
-
+const educationChart = async(req,res,next)=>{
+  const educationCount = {};
+db.once("value", function(snapshot) {
+  const users = snapshot.val();
+  for (let key in users) {
+    const education = users[key].education;
+    if (education in educationCount) {
+      educationCount[education]++;
+    } else {
+      educationCount[education] = 1;
+    }
+  }
+});
+console.log(educationCount)
+}
 module.exports={
     dashboard,
     pieChart,
     customers,
     userChart,
-    hobbiesChart
+    hobbiesChart,
+    index,
+    educationChart
 }

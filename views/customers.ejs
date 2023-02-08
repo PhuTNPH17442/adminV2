@@ -53,7 +53,7 @@
             </div>
         </div>
         <!-- card -->
-        <h1>Users</h1>
+        <h1 style="margin-left: 10px;">Users</h1>
         <!-- <form action="#" method="post">
             <button type="submit">Add User</button>
         </form> -->
@@ -76,13 +76,14 @@
                         </p>
                     </div>
                     <div class="btn">
-                        <button  type="submit">
+                        <button id="mybtn" type="submit">
                             Block
                         </button>
-                        <button type="submit">Delete</button>
+                        <button id="btnDelete" type="submit">Delete
+                        </button>
                     </div>
                 </div>
-                
+
 
                 <% } %>
         </div>
@@ -112,7 +113,26 @@
         list.forEach((item) =>
             item.addEventListener('mouseover', activeLink));
     </script>
-
+    <script>
+        document.getElementById("mybtn").addEventListener("click", function () {
+            const result = confirm("Are you sure you want to block/unblock this user?");
+            if(result){
+            if (this.innerHTML === "Block") {
+                this.style.backgroundColor = "red";
+                this.innerHTML = "Unblock";
+            } else {
+                this.style.backgroundColor = "";
+                this.innerHTML = "Block";
+            }
+        }
+        });
+    </script>
+    <script>
+        document.getElementById("btnDelete").addEventListener("click",function(){
+            const userID = user.userID
+            return userID
+        })
+    </script>
 </body>
 
 </html>
